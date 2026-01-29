@@ -13,12 +13,14 @@ export default function ControlPanel({ problemId }: ControlPanelProps) {
     status,
     currentStep,
     totalSteps,
+    speed,
     setEvents,
     stepForward,
     stepBackward,
     reset,
     play,
-    pause
+    pause,
+    setSpeed
   } = useExecutionStore();
 
   const handleRun = () => {
@@ -68,6 +70,21 @@ export default function ControlPanel({ problemId }: ControlPanelProps) {
         >
           <RotateCcw size={16} />
         </button>
+      </div>
+
+      {/* Speed Control */}
+      <div className="flex items-center gap-2 ml-4">
+        <span className="text-xs text-gray-400">Speed:</span>
+        <input
+          type="range"
+          min="100"
+          max="2000"
+          step="100"
+          value={speed}
+          onChange={(e) => setSpeed(Number(e.target.value))}
+          className="w-24 h-2 bg-[#424242] rounded-lg appearance-none cursor-pointer accent-[#00c853]"
+        />
+        <span className="text-xs text-gray-400 w-14">{speed}ms</span>
       </div>
 
       {totalSteps > 0 && (

@@ -139,5 +139,143 @@ def inorderTraversal(root):
       { input: '[]', expectedOutput: '[]' }
     ],
     dataStructures: ['tree']
+  },
+  {
+    id: 'valid-parentheses',
+    title: 'Valid Parentheses',
+    difficulty: 'Easy',
+    description: `Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+1. Open brackets must be closed by the same type of brackets.
+2. Open brackets must be closed in the correct order.
+3. Every close bracket has a corresponding open bracket of the same type.`,
+    examples: [
+      {
+        input: 's = "()"',
+        output: 'true',
+        explanation: 'The string contains valid matching parentheses.'
+      },
+      {
+        input: 's = "()[]{}"',
+        output: 'true',
+        explanation: 'All brackets are properly matched and in correct order.'
+      },
+      {
+        input: 's = "(]"',
+        output: 'false',
+        explanation: 'Brackets are not properly matched.'
+      }
+    ],
+    constraints: [
+      '1 <= s.length <= 10^4',
+      's consists of parentheses only \'()[]{}\'.'
+    ],
+    starterCode: `def isValid(s):
+    """
+    :type s: str
+    :rtype: bool
+    """
+    # Write your code here
+    pass
+
+# Test
+result = isValid("()[]{}")
+print(result)`,
+    testCases: [
+      { input: '"()"', expectedOutput: 'true' },
+      { input: '"()[]{}"', expectedOutput: 'true' },
+      { input: '"(]"', expectedOutput: 'false' }
+    ],
+    dataStructures: ['stack']
+  },
+  {
+    id: 'max-depth-binary-tree',
+    title: 'Maximum Depth of Binary Tree',
+    difficulty: 'Easy',
+    description: `Given the root of a binary tree, return its maximum depth.
+
+A binary tree's maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.`,
+    examples: [
+      {
+        input: 'root = [3,9,20,null,null,15,7]',
+        output: '3',
+        explanation: 'The maximum depth is 3 (path: 3 -> 20 -> 15 or 3 -> 20 -> 7)'
+      },
+      {
+        input: 'root = [1,null,2]',
+        output: '2',
+        explanation: 'The maximum depth is 2 (path: 1 -> 2)'
+      }
+    ],
+    constraints: [
+      'The number of nodes in the tree is in the range [0, 10^4]',
+      '-100 <= Node.val <= 100'
+    ],
+    starterCode: `class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def maxDepth(root):
+    """
+    :type root: TreeNode
+    :rtype: int
+    """
+    # Write your code here
+    pass
+
+# Test
+# root = TreeNode(3, TreeNode(9), TreeNode(20, TreeNode(15), TreeNode(7)))
+# result = maxDepth(root)`,
+    testCases: [
+      { input: '[3,9,20,null,null,15,7]', expectedOutput: '3' },
+      { input: '[1,null,2]', expectedOutput: '2' }
+    ],
+    dataStructures: ['tree']
+  },
+  {
+    id: 'contains-duplicate',
+    title: 'Contains Duplicate',
+    difficulty: 'Easy',
+    description: `Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.`,
+    examples: [
+      {
+        input: 'nums = [1,2,3,1]',
+        output: 'true',
+        explanation: 'The value 1 appears at index 0 and index 3.'
+      },
+      {
+        input: 'nums = [1,2,3,4]',
+        output: 'false',
+        explanation: 'All elements are distinct.'
+      },
+      {
+        input: 'nums = [1,1,1,3,3,4,3,2,4,2]',
+        output: 'true',
+        explanation: 'Multiple values appear more than once.'
+      }
+    ],
+    constraints: [
+      '1 <= nums.length <= 10^5',
+      '-10^9 <= nums[i] <= 10^9'
+    ],
+    starterCode: `def containsDuplicate(nums):
+    """
+    :type nums: List[int]
+    :rtype: bool
+    """
+    # Write your code here
+    pass
+
+# Test
+result = containsDuplicate([1, 2, 3, 1])
+print(result)`,
+    testCases: [
+      { input: '[1,2,3,1]', expectedOutput: 'true' },
+      { input: '[1,2,3,4]', expectedOutput: 'false' }
+    ],
+    dataStructures: ['array', 'hashmap']
   }
 ];

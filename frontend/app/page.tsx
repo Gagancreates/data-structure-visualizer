@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { mockProblems } from '@/lib/mock/mockProblems';
 import { useExecutionStore } from '@/lib/store/executionStore';
 import { Problem } from '@/lib/types';
@@ -18,11 +19,13 @@ export default function Home() {
   };
 
   return (
-    <MainLayout
-      problem={currentProblem}
-      code={code}
-      onCodeChange={setCode}
-      onProblemChange={handleProblemChange}
-    />
+    <ErrorBoundary>
+      <MainLayout
+        problem={currentProblem}
+        code={code}
+        onCodeChange={setCode}
+        onProblemChange={handleProblemChange}
+      />
+    </ErrorBoundary>
   );
 }

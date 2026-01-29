@@ -276,5 +276,309 @@ export const generateMockExecution = (problemId: string): VisualizationEvent[] =
     ];
   }
 
+  if (problemId === 'valid-parentheses') {
+    return [
+      {
+        step: 0,
+        timestamp: 0,
+        type: 'create',
+        data: {
+          dsType: 'stack',
+          dsName: 'stack',
+          nodes: [],
+          message: 'Initialize empty stack. Input: "()[]{}"'
+        }
+      },
+      {
+        step: 1,
+        timestamp: 500,
+        type: 'create',
+        data: {
+          dsType: 'stack',
+          dsName: 'stack',
+          nodes: [
+            { id: 'stack-0', value: '(', index: 0 }
+          ],
+          highlights: ['stack-0'],
+          message: 'Push "(" onto stack'
+        }
+      },
+      {
+        step: 2,
+        timestamp: 1000,
+        type: 'delete',
+        data: {
+          dsType: 'stack',
+          dsName: 'stack',
+          nodes: [],
+          message: 'Found matching ")" - Pop "(" from stack'
+        }
+      },
+      {
+        step: 3,
+        timestamp: 1500,
+        type: 'create',
+        data: {
+          dsType: 'stack',
+          dsName: 'stack',
+          nodes: [
+            { id: 'stack-0', value: '[', index: 0 }
+          ],
+          highlights: ['stack-0'],
+          message: 'Push "[" onto stack'
+        }
+      },
+      {
+        step: 4,
+        timestamp: 2000,
+        type: 'delete',
+        data: {
+          dsType: 'stack',
+          dsName: 'stack',
+          nodes: [],
+          message: 'Found matching "]" - Pop "[" from stack'
+        }
+      },
+      {
+        step: 5,
+        timestamp: 2500,
+        type: 'create',
+        data: {
+          dsType: 'stack',
+          dsName: 'stack',
+          nodes: [
+            { id: 'stack-0', value: '{', index: 0 }
+          ],
+          highlights: ['stack-0'],
+          message: 'Push "{" onto stack'
+        }
+      },
+      {
+        step: 6,
+        timestamp: 3000,
+        type: 'delete',
+        data: {
+          dsType: 'stack',
+          dsName: 'stack',
+          nodes: [],
+          message: 'Found matching "}" - Stack empty! Valid parentheses ✓'
+        }
+      }
+    ];
+  }
+
+  if (problemId === 'max-depth-binary-tree') {
+    return [
+      {
+        step: 0,
+        timestamp: 0,
+        type: 'create',
+        data: {
+          dsType: 'tree',
+          dsName: 'root',
+          nodes: [
+            { id: 'node-3', value: 3, metadata: { isRoot: true } },
+            { id: 'node-9', value: 9 },
+            { id: 'node-20', value: 20 },
+            { id: 'node-15', value: 15 },
+            { id: 'node-7', value: 7 }
+          ],
+          edges: [
+            { id: 'edge-3-9', source: 'node-3', target: 'node-9', label: 'left' },
+            { id: 'edge-3-20', source: 'node-3', target: 'node-20', label: 'right' },
+            { id: 'edge-20-15', source: 'node-20', target: 'node-15', label: 'left' },
+            { id: 'edge-20-7', source: 'node-20', target: 'node-7', label: 'right' }
+          ],
+          message: 'Tree structure: Finding maximum depth'
+        }
+      },
+      {
+        step: 1,
+        timestamp: 500,
+        type: 'highlight',
+        data: {
+          dsType: 'tree',
+          dsName: 'root',
+          nodes: [
+            { id: 'node-3', value: 3, metadata: { isRoot: true } },
+            { id: 'node-9', value: 9 },
+            { id: 'node-20', value: 20 },
+            { id: 'node-15', value: 15 },
+            { id: 'node-7', value: 7 }
+          ],
+          edges: [
+            { id: 'edge-3-9', source: 'node-3', target: 'node-9', label: 'left' },
+            { id: 'edge-3-20', source: 'node-3', target: 'node-20', label: 'right' },
+            { id: 'edge-20-15', source: 'node-20', target: 'node-15', label: 'left' },
+            { id: 'edge-20-7', source: 'node-20', target: 'node-7', label: 'right' }
+          ],
+          highlights: ['node-3'],
+          message: 'Start at root (3), depth = 1'
+        }
+      },
+      {
+        step: 2,
+        timestamp: 1000,
+        type: 'highlight',
+        data: {
+          dsType: 'tree',
+          dsName: 'root',
+          nodes: [
+            { id: 'node-3', value: 3, metadata: { isRoot: true } },
+            { id: 'node-9', value: 9 },
+            { id: 'node-20', value: 20 },
+            { id: 'node-15', value: 15 },
+            { id: 'node-7', value: 7 }
+          ],
+          edges: [
+            { id: 'edge-3-9', source: 'node-3', target: 'node-9', label: 'left' },
+            { id: 'edge-3-20', source: 'node-3', target: 'node-20', label: 'right' },
+            { id: 'edge-20-15', source: 'node-20', target: 'node-15', label: 'left' },
+            { id: 'edge-20-7', source: 'node-20', target: 'node-7', label: 'right' }
+          ],
+          highlights: ['node-9'],
+          message: 'Left path: node 9 (leaf), depth = 2'
+        }
+      },
+      {
+        step: 3,
+        timestamp: 1500,
+        type: 'highlight',
+        data: {
+          dsType: 'tree',
+          dsName: 'root',
+          nodes: [
+            { id: 'node-3', value: 3, metadata: { isRoot: true } },
+            { id: 'node-9', value: 9 },
+            { id: 'node-20', value: 20 },
+            { id: 'node-15', value: 15 },
+            { id: 'node-7', value: 7 }
+          ],
+          edges: [
+            { id: 'edge-3-9', source: 'node-3', target: 'node-9', label: 'left' },
+            { id: 'edge-3-20', source: 'node-3', target: 'node-20', label: 'right' },
+            { id: 'edge-20-15', source: 'node-20', target: 'node-15', label: 'left' },
+            { id: 'edge-20-7', source: 'node-20', target: 'node-7', label: 'right' }
+          ],
+          highlights: ['node-20', 'node-15'],
+          message: 'Right path: node 20 -> 15 (leaf), depth = 3'
+        }
+      },
+      {
+        step: 4,
+        timestamp: 2000,
+        type: 'highlight',
+        data: {
+          dsType: 'tree',
+          dsName: 'root',
+          nodes: [
+            { id: 'node-3', value: 3, metadata: { isRoot: true } },
+            { id: 'node-9', value: 9 },
+            { id: 'node-20', value: 20 },
+            { id: 'node-15', value: 15 },
+            { id: 'node-7', value: 7 }
+          ],
+          edges: [
+            { id: 'edge-3-9', source: 'node-3', target: 'node-9', label: 'left' },
+            { id: 'edge-3-20', source: 'node-3', target: 'node-20', label: 'right' },
+            { id: 'edge-20-15', source: 'node-20', target: 'node-15', label: 'left' },
+            { id: 'edge-20-7', source: 'node-20', target: 'node-7', label: 'right' }
+          ],
+          highlights: ['node-20', 'node-7'],
+          message: 'Right path: node 20 -> 7 (leaf), depth = 3. Max depth = 3 ✓'
+        }
+      }
+    ];
+  }
+
+  if (problemId === 'contains-duplicate') {
+    return [
+      {
+        step: 0,
+        timestamp: 0,
+        type: 'create',
+        data: {
+          dsType: 'array',
+          dsName: 'nums',
+          nodes: [
+            { id: 'nums-0', value: 1, index: 0 },
+            { id: 'nums-1', value: 2, index: 1 },
+            { id: 'nums-2', value: 3, index: 2 },
+            { id: 'nums-3', value: 1, index: 3 }
+          ],
+          message: 'Initialize array: nums = [1, 2, 3, 1]. Check for duplicates using hash set.'
+        }
+      },
+      {
+        step: 1,
+        timestamp: 500,
+        type: 'highlight',
+        data: {
+          dsType: 'array',
+          dsName: 'nums',
+          nodes: [
+            { id: 'nums-0', value: 1, index: 0 },
+            { id: 'nums-1', value: 2, index: 1 },
+            { id: 'nums-2', value: 3, index: 2 },
+            { id: 'nums-3', value: 1, index: 3 }
+          ],
+          highlights: ['nums-0'],
+          message: 'Check nums[0] = 1. Add to set: {1}'
+        }
+      },
+      {
+        step: 2,
+        timestamp: 1000,
+        type: 'highlight',
+        data: {
+          dsType: 'array',
+          dsName: 'nums',
+          nodes: [
+            { id: 'nums-0', value: 1, index: 0 },
+            { id: 'nums-1', value: 2, index: 1 },
+            { id: 'nums-2', value: 3, index: 2 },
+            { id: 'nums-3', value: 1, index: 3 }
+          ],
+          highlights: ['nums-1'],
+          message: 'Check nums[1] = 2. Add to set: {1, 2}'
+        }
+      },
+      {
+        step: 3,
+        timestamp: 1500,
+        type: 'highlight',
+        data: {
+          dsType: 'array',
+          dsName: 'nums',
+          nodes: [
+            { id: 'nums-0', value: 1, index: 0 },
+            { id: 'nums-1', value: 2, index: 1 },
+            { id: 'nums-2', value: 3, index: 2 },
+            { id: 'nums-3', value: 1, index: 3 }
+          ],
+          highlights: ['nums-2'],
+          message: 'Check nums[2] = 3. Add to set: {1, 2, 3}'
+        }
+      },
+      {
+        step: 4,
+        timestamp: 2000,
+        type: 'highlight',
+        data: {
+          dsType: 'array',
+          dsName: 'nums',
+          nodes: [
+            { id: 'nums-0', value: 1, index: 0, metadata: { color: 'green' } },
+            { id: 'nums-1', value: 2, index: 1 },
+            { id: 'nums-2', value: 3, index: 2 },
+            { id: 'nums-3', value: 1, index: 3, metadata: { color: 'green' } }
+          ],
+          highlights: ['nums-0', 'nums-3'],
+          message: 'Check nums[3] = 1. Already in set! Duplicate found ✓'
+        }
+      }
+    ];
+  }
+
   return [];
 };
